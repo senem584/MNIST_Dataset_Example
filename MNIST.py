@@ -35,7 +35,7 @@ model.add(Flatten(input_shape=(28,28))) # converting the 2D image into a 1D arra
 # ReLU basically says if it's positive, keep it. if it is negative, don't. this helps models learn patterns
 model.add(Dense(128, activation = 'relu')) # 128 neurons looks at input data in learns to detect a pattern
 model. add(Dense(32, activation = 'relu')) # 128 features is decreased to 32 new features that is the most important information
-model. add(Dense(11, activation = 'relu')) # producing 11 outputs 
+model. add(Dense(11, activation = 'softmax')) # producing 11 outputs 
 model.summary() 
 
 # compiling and training the model
