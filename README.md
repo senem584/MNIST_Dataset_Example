@@ -3,6 +3,7 @@ This project demostrates the MNIST dataset which contains a large collection of 
 # Table Of Contents
 - [Implementation](#implementation)
 - [Requirements](#requirments)
+- [How to Use](#how-to-use)
 - [Error Handling](#error-handling)
 - [References](#references)
 # Implementation
@@ -17,6 +18,8 @@ tensorflow==2.20.0
 keras==3.11.3
 scikit-learn==1.7.1
 ```
+# How to Use
+To utilize this code, a Python environment is installed. Download the MNIST.py file onto your computer into a folder. Then open that folder/file on VSCode. 
 # Error Handling 
 This project does not have any error handling.
 # References 
