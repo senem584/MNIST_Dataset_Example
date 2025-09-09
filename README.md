@@ -8,7 +8,7 @@ This project demostrates the MNIST dataset which contains a large collection of 
 # Implementation
 The models implementation consists of an input of the MNIST dataset in which it involves a collection of 70,000 handwritten digits (0-9), with each image being 28x28 pixels. The model is trained using 25 EPOCHs in which it is passed through 25 times, with a validation split of 0.2 to prevent overfitting and validates on a specific portion of the data. 
 # Requirments 
-This project requires tensorflow, keras, and scikit-learn. It was developed using Python environment through VSCode.
+This project requires tensorflow, keras, and scikit-learn. It was developed using a Python environment through VSCode.
 
 Use 'pip install -r requirements.txt' to install the following dependencies:
 
