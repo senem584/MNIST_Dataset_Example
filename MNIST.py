@@ -4,6 +4,39 @@ from keras import Sequential
 from keras.layers import Dense, Flatten
 from sklearn.metrics import accuracy_score
 
+class MNISTClassifier:
+    def __init__(self): #initialize kernel to hold null, parse and call to self
+        self.model = None
+        self.X_train = None
+        self.X_test = None
+        self.y_train = None
+        self.y_test = None 
+
+    def loadData(self):
+        (self.X_train, self.y_train), (self.X_test,self.y_test) = keras.datasets.mnist.load_data() #Load Dataset
+        self.X_train, self.X_test = self.X_train / 255.0, self.X_test / 255.0 #Normalize Pixels
+
+    def buildModel(self): #Building neural network model
+        self.model = Sequential()
+        self.model.add(Flatten(input_shape=(28,28)))
+        self.model.model.add(Dense(128, activation = 'relu')) # 128 neurons looks at input data in learns to detect a pattern
+        self.model.add(Dense(32, activation = 'relu')) # 128 features is decreased to 32 new features that is the most important information
+        self.model. add(Dense(11, activation = 'softmax')) # producing 11 outputs 
+        self.model.summary() 
+
+    def compileModel(self):
+        self.model.compile(loss='sparse_categorical_crossentropy',optimizer='Adam',metrics=['accuracy'])
+
+    def trainModel(self, epochs=25,validation_split=0.2):
+        self.history = self.model.fit(self.X_train,self.y_train,epochs=epochs,validation_split=validation_split)
+
+    def evaluateModel(self):
+        y_prob = self.model.predict(self.X_test)
+        y_pred = y_prob.argmax(axis=1)
+        accuracy_score(self.y_test,y_pred)
+        print(f"Test Accuracy: {accuracy_score:.4f}")
+
+'''
 # uploading the MNIST dataset using the keras API
 # using load_data() splits the dataset into 2 parts: x_train and y_train
 # x_train (images) and y_train (labels) are images of handwritten digits and their labels 
@@ -49,3 +82,4 @@ history = model.fit(X_train,y_train,epochs=25,validation_split=0.2)
 y_prob = model.predict(X_test)
 y_pred = y_prob.argmax(axis=1)
 accuracy_score(y_test,y_pred)
+'''
